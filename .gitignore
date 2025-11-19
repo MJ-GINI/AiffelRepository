@@ -1,0 +1,21 @@
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Data files
+*.csv
+*.pkl
+*.xlsx
+
+# OS / IDE files
+.DS_Store
+.vscode/
+.idea/
+_Folder/2025-09-19_PRactice_repo/
+first-repository/
+*.pkl
+__pycache__/
+.ipynb_checkpoints/
