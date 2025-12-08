@@ -5,7 +5,7 @@
 - 꽃 클래스: 총 5개 (Daisy, Dandelion, Roses, Sunflowers, Tulips)
 
 ## 2.최종 모델 요약
-<img width="860" height="358" alt="image" src="https://github.com/user-attachments/assets/f3f837a1-7064-4bfc-a79d-4ce328058743" />
+<img width="866" height="360" alt="image" src="https://github.com/user-attachments/assets/b632c6b4-6709-47f5-947b-c204777b7dc9" />
 
 ## 3.모델 성능 검증 단계별 시도 사항 및 요약
 | 단계 | 시도 사항 및 주요 전략 | 베이스 모델 | 결과 (Test Acc) | 소요 시간(Epoch당) |
@@ -28,14 +28,14 @@
 - 목표 점수인 test accuracy 85% 도달을 위해 파인 튜닝 진행
 - BaseModel.trainable = True로 변경, 학습 진행 시 성능 달성 후 조기 종료(early stopping), 학습률을 매우 낮게 조정
 - train vs. validation 정확도 및 손실값 간의 그래프 확인하여 과적합 여부 확인 -> 안정성 / 일반화 성능 확인
-  <img width="2601" height="1093" alt="image" src="https://github.com/user-attachments/assets/a0980156-6ac4-4557-a6f1-27855e84342b" />
+  <img width="2601" height="1093" alt="image" src="https://github.com/user-attachments/assets/4e44396a-987b-45ff-9a83-191c8b65c7d8" />
 - 혼동행렬 히트맵 확인을 통한 클래스별 혼동된 꽃 분류 체크 \
   (단, 본 프로젝트에서는 혼동행렬 확인만 하고 추가 디벨롭 하지 않음)
-  <img width="1560" height="1401" alt="image" src="https://github.com/user-attachments/assets/cda3867b-8f8d-4a3e-a59c-0596f666f4ab" />
+  <img width="1560" height="1401" alt="image" src="https://github.com/user-attachments/assets/44511065-ae66-4608-ab6b-635c709102e0" />
 - 최종 배치 정확도 91.28% 달성하며 본 프로젝트 실습 종료
 
 ## 5.결론
-<img width="3477" height="2779" alt="image" src="https://github.com/user-attachments/assets/697cf7a3-a13b-4caf-bc4b-8a096a5d0014" />
+<img width="2900" height="1982" alt="image" src="https://github.com/user-attachments/assets/01fe05fe-cf2e-466c-a44e-31c9d570f991" />
 
 - MobileNetV2는 모바일 환경에서 경량화된 모델이지만 VGG16 대비 성능도 뒤떨어지지 않아 이번 모델에 적합했다고 판단됨
 - 또한 fine-tunning의 Layer 범위를 80까지 확대한 것이 유효했음
