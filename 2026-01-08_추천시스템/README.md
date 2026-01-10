@@ -13,11 +13,11 @@ MovieLens-1M 데이터셋을 활용하여 사용자 맞춤형 영화 추천 서�
 * 깃허브 각 폴더 경로에도 기재해두었음
 
 ## 3. 모델 아키텍처
-### AutoInt (베이스 모델)
+### 1️⃣ AutoInt (베이스 모델)
 - 특징: Multi-head Self-Attention을 이용해 피처 간의 고차원 상호작용 자동 학습
 - 한계: 명시적인 상호작용 외의 복잡한 비선형 패턴 학습에 한계가 있음
 
-### AutoInt+ (AutoInt + MLP)
+### 2️⃣ AutoInt+ (AutoInt + MLP)
 - 개선점: Attention 구조에 DNN을 병렬로 결합하여 표현력 강화
 - 구조:
   - Embedding Layer: 고차원 희소 데이터를 저차원 밀집 벡터로 변환
@@ -39,3 +39,32 @@ MovieLens-1M 데이터셋을 활용하여 사용자 맞춤형 영화 추천 서�
   - 2) os.environ["CUDA_VISIBLE_DEVICES"] = "-1" 설정을 통해 강제로 CPU 모드로 실행
    
 ## 5. 성능 평가
+### 1️⃣ 정량 평가
+| 지표 (Metrics) | 점수 (Score) | 평가 |
+|:--|:--:|:--|
+| NDCG@10 | 0.6626 | 추천 순위의 정확도가 준수한 편 |
+| HitRate@10 | 0.6329 | 상위 10개 추천 중 약 63% 확률로 사용자 선호 영화 포함하여, 매우 만족스럽진 못하지만 오류를 다시 해결할 자신이 없어 더 개선하지 못함 |
+| Loss | 0.54 | 심각한 과적합 없이 나름의 안정적인 학습 상태 확인 |
+
+### 2️⃣ 정성 평가
+- 개인화: 사용자 ID 변경 시 추천 리스트가 즉각적으로 변화하며 개인 취향 반영 -> 단, 이것은 데이터 무한 로딩의 늪에 빠지지 않기 위해 샘플링의 영향이라 아쉬움
+- 장르 연관성: 시청 이력(예: 액션, SF)과 유사하거나 연관된 장르가 추천되는 점 확인 완료 (다양한 장르의 영화를 본 사용자 대상으로는 그에 맞게 다양하게 추천 / 추천 점수도 높은 편)
+- 다양성: 인기 영화뿐만 아니라, 사용자의 숨겨진 취향에 맞는 독특한 영화도 추천
+
+### 🔥 Streamlit 캡처 이미지
+#### 1️⃣ AutoInt 기본 모델
+<img width="520" height="540" alt="image" src="https://github.com/user-attachments/assets/5130d222-0da9-49ba-bafd-db14b6b4693f" />
+
+<img width="532" height="540" alt="image" src="https://github.com/user-attachments/assets/efc3f290-3243-4a31-b6f5-342913635c19" />
+
+<img width="504" height="540" alt="image" src="https://github.com/user-attachments/assets/32812515-8f3a-467f-9f98-cc712b463b1f" />
+
+#### 2️⃣ AutoInt+ MLP 모델
+<img width="1494" height="1524" alt="image" src="https://github.com/user-attachments/assets/db52a88c-ad02-4cbe-945b-4d18e2ef389f" />
+
+<img width="1498" height="1550" alt="image" src="https://github.com/user-attachments/assets/6ef897e8-83fe-43c4-97a6-c526346ebb03" />
+
+<img width="1496" height="1592" alt="image" src="https://github.com/user-attachments/assets/f543dc55-5fd9-466f-8f75-dcce7dad0765" />
+
+<img width="1506" height="1552" alt="image" src="https://github.com/user-attachments/assets/09a15c83-2fa9-4bfa-b2d9-355df124f516" />
+
