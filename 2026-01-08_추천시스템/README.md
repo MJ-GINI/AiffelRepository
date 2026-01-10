@@ -9,6 +9,23 @@ MovieLens-1M 데이터셋을 활용하여 사용자 맞춤형 영화 추천 서�
 
 ## 2. 프로젝트 파일 구조
 📊 데이터 파이프라인
+| 분류 | 파일명 | 설명 |
+|:--|:--|:--|
+| Notebook | data_EDA.ipynb | 데이터 이해 및 분석: 평점 분포, 사용자 행동 패턴 시각화 |
+|  | data_prepro.ipynb | 데이터 전처리: 결측치 처리, 라벨 인코딩, field_dims.npy, label_encoders.pkl 생성 |
+|  | autoint_train.ipynb | AutoInt(Base): 기본 모델 정의, 학습, 평가 및 가중치 저장 |
+|  | autoint_mlp_train.ipynb | AutoInt+(Advanced): MLP 결합 모델 클래스 재정의, 학습 및 평가 |
+|  | autoint_mlp_train_re.ipynb | 트러블슈팅: 레이어 넘버링 꼬임(Layer Mismatch) 해결을 위한 세션/모델 초기화 및 재학습 수행 |
+|  | model_load_test.ipynb | 사전 검증: Streamlit 배포 전, 생성된 가중치가 정상 로드되는지 테스트 |
+| Model | autoInt_model_weights.h5 | AutoInt 기본 모델 가중치 |
+|  | autoInt_model_weights.weights.h5 | AutoInt+ 가중치 (Mac/Streamlit 환경에서 로드 오류 발생한 원본 파일) |
+|  | autoInt_model_weights.pkl | (최종 해결책) .h5 구조 문제 해결을 위해 순수 숫자 Weights만 추출하여 이식한 파일 |
+| Data | field_dims.npy | 데이터 지도 (각 필드의 임베딩 크기 정보) |
+|  | label_encoders.pkl | 번역기 (데이터 인코딩/디코딩 객체) |
+|  | ml-1m/users_prepro.csv | 전처리된 사용자 정보 |
+|  | ml-1m/movies_prepro.csv | 전처리된 영화 정보 |
+|  | ml-1m/ratings_prepro.csv | 전처리된 평점 정보 |
+|  | ml-1m/movielens_rcmm_v2.csv | 학습용 최종 병합(Merge) 데이터셋 |
 
 * 깃허브 각 폴더 경로에도 기재해두었음
 
